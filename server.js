@@ -4,11 +4,11 @@ require("dotenv").config();
 
 const connectDB = require("./config/db");
 const { errorHandler } = require("./middleware/errorHandler");
-const authRoutes = require("./routes/authRoutes");
+const authRoutes = require("./routes/authroutes");
 const userRoutes = require("./routes/userRoutes");
 const projectRoutes = require("./routes/projectRoutes");
 const taskRoutes = require("./routes/taskRoutes");
-const aiRoutes = require("./routes/aiRoutes");
+const aiRoutes = require("./routes/airoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
