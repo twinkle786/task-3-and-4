@@ -1,4 +1,4 @@
-const Project = require("../models/project");
+const Project = require("../models/Project");
 const { ApiError } = require("../middleware/errorHandler");
 
 async function getAllProjects(req, res, next) {
