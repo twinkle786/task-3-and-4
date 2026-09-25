@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+const User = require("../models/user");
 const { ApiError } = require("../middleware/errorHandler");
 
 // JWT token banane ka helper function
