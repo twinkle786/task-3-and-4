@@ -6,8 +6,8 @@ const {
   createProject,
   updateProject,
   deleteProject,
-} = require("../controllers/projectController");
-const { protect } = require("../middleware/auth");
+} = require("../controllers/projectcontroller");
+const { protect } = require("../middleware/Auth");
 
 // protect middleware sab routes pe laga diya - ab bina login ke koi bhi access nahi kar sakta
 router.use(protect);

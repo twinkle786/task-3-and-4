@@ -9,7 +9,7 @@ const {
   updateTaskStatus,
   deleteTask,
 } = require("../controllers/taskController");
-const { protect } = require("../middleware/auth");
+const { protect } = require("../middleware/Auth");
 
 router.use(protect);
 
