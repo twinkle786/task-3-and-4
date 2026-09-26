@@ -1,6 +1,5 @@
 const { ApiError } = require("../middleware/errorHandler");
 
-// POST /api/ai/suggest-tasks - project description se AI tasks suggest karega
 async function suggestTasks(req, res, next) {
   try {
     const { description } = req.body;
@@ -33,7 +32,10 @@ async function suggestTasks(req, res, next) {
     });
 
     if (!response.ok) {
-      return next(new ApiError(500, "AI service abhi available nahi hai, thodi der baad try karo"));
+      // Ab hum Groq ka ASLI error bhi console mein print karenge aur response mein bhejenge (debug ke liye)
+      const errorText = await response.text();
+      console.error("Groq API error:", response.status, errorText);
+      return next(new ApiError(500, `AI service error: ${errorText.slice(0, 200)}`));
     }
 
     const data = await response.json();
