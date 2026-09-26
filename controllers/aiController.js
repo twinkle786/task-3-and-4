@@ -15,7 +15,7 @@ async function suggestTasks(req, res, next) {
         Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
+        model: "llama-3.1-8b-instant",
         messages: [
           {
             role: "system",
@@ -32,7 +32,6 @@ async function suggestTasks(req, res, next) {
     });
 
     if (!response.ok) {
-      // Ab hum Groq ka ASLI error bhi console mein print karenge aur response mein bhejenge (debug ke liye)
       const errorText = await response.text();
       console.error("Groq API error:", response.status, errorText);
       return next(new ApiError(500, `AI service error: ${errorText.slice(0, 200)}`));
